@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Virtual Car Showroom</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .controls-overlay {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .car-info-panel {
+            position: fixed;
+            right: 20px;
+            top: 80px;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .instructions {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 2;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-car-side text-3xl text-blue-600 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">Virtual Showroom</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="showroom.html" class="text-gray-800 hover:text-blue-600 font-medium">3D Showroom</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3D Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Instructions Panel -->
+    <div class="instructions">
+        <h3 class="text-lg font-bold text-gray-800 mb-3">Controls</h3>
+        <ul class="text-sm text-gray-600 space-y-2">
+            <li><i class="fas fa-mouse mr-2"></i> Left Click + Drag to rotate view</li>
+            <li><i class="fas fa-arrows-alt mr-2"></i> Right Click + Drag to pan</li>
+            <li><i class="fas fa-search mr-2"></i> Scroll to zoom in/out</li>
+            <li><i class="fas fa-walking mr-2"></i> WASD keys to walk around</li>
+        </ul>
+    </div>
+
+    <!-- Controls Overlay -->
+    <div class="controls-overlay">
+        <div class="flex space-x-4">
+            <button id="rotate-left" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+                <i class="fas fa-undo"></i>
+            </button>
+            <button id="rotate-right" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+                <i class="fas fa-redo"></i>
+            </button>
+            <button id="zoom-in" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+                <i class="fas fa-search-plus"></i>
+            </button>
+            <button id="zoom-out" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+                <i class="fas fa-search-minus"></i>
+            </button>
+            <button id="toggle-interior" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+                <i class="fas fa-car"></i> Toggle Interior
+            </button>
+        </div>
+    </div>
+
+    <!-- Car Information Panel -->
+    <div class="car-info-panel">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Car Information</h2>
+        <div id="car-details">
+            <div class="mb-4">
+                <h3 class="font-semibold text-gray-700">Model</h3>
+                <p id="car-model" class="text-gray-600">Hyundai Aura</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="font-semibold text-gray-700">Specifications</h3>
+                <ul class="text-gray-600 space-y-1">
+                    <li><i class="fas fa-engine mr-2"></i>Engine: 1.2L Kappa Petrol</li>
+                    <li><i class="fas fa-tachometer-alt mr-2"></i>Power: 83 PS</li>
+                    <li><i class="fas fa-gas-pump mr-2"></i>Mileage: 20.5 kmpl</li>
+                    <li><i class="fas fa-cogs mr-2"></i>Transmission: 5 Speed Manual</li>
+                </ul>
+            </div>
+            <a href="car.html" id="view-details" class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300 text-center block">
+                View Full Details
+            </a>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
+            <p class="text-white mt-4 text-lg">Loading Virtual Showroom...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>
