@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Car Showroom - Ultimate 3D Experience</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-car-side text-3xl text-blue-600 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">Virtual Showroom</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="showroom.html" class="text-gray-800 hover:text-blue-600 font-medium">3D Showroom</a>
+                    <a href="#features" class="text-gray-800 hover:text-blue-600 font-medium">Features</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center" style="background-image: url('https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1920'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                Experience The Future of Car Shopping
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8">
+                Immerse yourself in our virtual showroom with interactive 3D models
+            </p>
+            <a href="showroom.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Enter Showroom
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">
+                Experience Premium Features
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-vr-cardboard text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">3D Visualization</h3>
+                    <p class="text-gray-600">
+                        Explore cars in stunning 3D detail from every angle
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-car text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Interior Tours</h3>
+                    <p class="text-gray-600">
+                        Step inside and experience the interior in detail
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-info-circle text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Detailed Information</h3>
+                    <p class="text-gray-600">
+                        Access comprehensive specifications and features
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
+                Ready to Experience the Future?
+            </h2>
+            <p class="text-xl text-gray-400 mb-10">
+                Step into our virtual showroom and discover your dream car
+            </p>
+            <a href="showroom.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg inline-block transition duration-300 ease-in-out transform hover:scale-105">
+                Enter Virtual Showroom
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-car-side text-3xl text-blue-600 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">Virtual Showroom</span>
+                    </div>
+                    <p class="text-gray-600">
+                        Experience the future of car shopping with our immersive virtual showroom.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a></li>
+                        <li><a href="showroom.html" class="text-gray-600 hover:text-blue-600">3D Showroom</a></li>
+                        <li><a href="#features" class="text-gray-600 hover:text-blue-600">Features</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-600"><i class="fas fa-envelope mr-2"></i> info@virtualshowroom.com</li>
+                        <li class="text-gray-600"><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-linkedin text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-12 pt-8 text-center">
+                <p class="text-gray-600">© 2024 Virtual Car Showroom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
