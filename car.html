@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details - Virtual Car Showroom</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-car-side text-3xl text-blue-600 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">Virtual Showroom</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="showroom.html" class="text-gray-800 hover:text-blue-600 font-medium">3D Showroom</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Car Details Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">Hyundai Aura</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex flex-col space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-200 rounded-lg shadow-lg p-4 flex items-center justify-center aspect-[3/2]">
+                            <div class="text-center">
+                                <i class="fas fa-car text-4xl text-gray-600 mb-2"></i>
+                                <p class="text-gray-600">Front View</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-200 rounded-lg shadow-lg p-4 flex items-center justify-center aspect-[3/2]">
+                            <div class="text-center">
+                                <i class="fas fa-car text-4xl text-gray-600 mb-2"></i>
+                                <p class="text-gray-600">Side View</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-200 rounded-lg shadow-lg p-4 flex items-center justify-center aspect-[3/2]">
+                            <div class="text-center">
+                                <i class="fas fa-car-side text-4xl text-gray-600 mb-2"></i>
+                                <p class="text-gray-600">Interior View</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-200 rounded-lg shadow-lg p-4 flex items-center justify-center aspect-[3/2]">
+                            <div class="text-center">
+                                <i class="fas fa-couch text-4xl text-gray-600 mb-2"></i>
+                                <p class="text-gray-600">Rear Seats</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center text-sm text-gray-600 mt-4">
+                        <p>Multiple views of the Hyundai Aura</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Specifications</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><strong>Engine:</strong> 1.2L Kappa Petrol</li>
+                        <li><strong>Power:</strong> 83 PS</li>
+                        <li><strong>Torque:</strong> 113.8 Nm</li>
+                        <li><strong>Mileage:</strong> 20.5 kmpl</li>
+                        <li><strong>Transmission:</strong> 5 Speed Manual</li>
+                        <li><strong>Fuel Type:</strong> Petrol</li>
+                        <li><strong>Seating Capacity:</strong> 5</li>
+                    </ul>
+                    <h3 class="text-xl font-bold text-gray-800 mt-6 mb-4">Features</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check-circle text-green-500"></i> 8-inch Touchscreen Infotainment</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Apple CarPlay & Android Auto</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Wireless Phone Charger</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Cruise Control</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Automatic Climate Control</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Rear AC Vents</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Dual Airbags</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> ABS with EBD</li>
+                    </ul>
+                    <a href="showroom.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full mt-6 inline-block">
+                        Back to Showroom
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="border-t border-gray-200 mt-12 pt-8 text-center">
+                <p class="text-gray-600">© 2024 Virtual Car Showroom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
